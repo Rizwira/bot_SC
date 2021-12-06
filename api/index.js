@@ -34,7 +34,7 @@ bot.on('message', (msg) => {
     if(state == 1){
         s = msg.text.split("|");
         i = parseFloat(s[0])
-        v = parseFloat(s[1])
+        r = parseFloat(s[1])
          
         model.predict(
             [
@@ -42,17 +42,16 @@ bot.on('message', (msg) => {
                 r
             ]
         ).then((jres1)=>{
-            v = parseFloat(jres1[0])
-            p = parseFloat(jres1[1])
+            console.log(jres1);
             
-            cls_model.classify([i, r, v, p]).then((jres2)=>{
+            cls_model.classify([i, r, parseFloat(jres1[0]), parseFloat(jres1[1])]).then((jres2)=>{
                 bot.sendMessage(
                         msg.chat.id,
-                        `nilai v yang diprediksi adalah ${v} volt` 
+                        `nilai v yang diprediksi adalah ${jres1[0]} volt` 
                 );
                 bot.sendMessage(
                         msg.chat.id,
-                        `nilai p yang diprediksi adalah ${p} watt`
+                        `nilai p yang diprediksi adalah ${jres1[1]} watt`
                 );
                 bot.sendMessage(
                         msg.chat.id,
