@@ -30,7 +30,7 @@ bot.onText(/\/predict/, (msg) => {
     state = 1;
 });
 
-bot.on('massage', (msg) => {
+bot.on('message', (msg) => {
     if(state == 1){
         s = msg.text.split("|");
         i = s[0]
@@ -47,7 +47,7 @@ bot.on('massage', (msg) => {
            );
             bot.sendMessage(
                 msg.chat.id,
-                'nilai v yang diprediksi adalah ${jres[0]} watt'
+                'nilai p yang diprediksi adalah ${jres[1]} watt'
            );
        })
     }else{
