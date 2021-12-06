@@ -15,7 +15,7 @@ bot.onText(/\/start/, (msg) => {
     console.log(msg)
     bot.sendMessage(
         msg.chat.id,
-        `hello ${msg.chat.first_name}, welcome...\n
+        `hello ${msg.chat.first_name}, welcome to bot_SC_Rizky\n
         click /predict`
     );   
 });
@@ -43,11 +43,11 @@ bot.on('massage', (msg) => {
         ).then((jres)=>{
             bot.sendMessage(
                 msg.chat.id,
-                'nilai v yang diprediksi adalah s{jres[0]} volt' 
+                'nilai v yang diprediksi adalah ${jres[0]} volt' 
            );
             bot.sendMessage(
                 msg.chat.id,
-                'nilai v yang diprediksi adalah s{jres[0]} watt'
+                'nilai v yang diprediksi adalah ${jres[0]} watt'
            );
        })
     }else{
